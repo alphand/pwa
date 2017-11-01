@@ -75,6 +75,10 @@ module.exports = {
         }
       ]
     },
+    "vuex": {
+      "type": "confirm",
+      "message": "Setup Vuex?"
+    },
     "unit": {
       "type": "confirm",
       "message": "Setup unit tests with Karma + Mocha?"

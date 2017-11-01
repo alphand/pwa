@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: 'typescript-eslint-parser',
   parserOptions: {
     sourceType: 'module'
   },
@@ -42,13 +42,25 @@ module.exports = {
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       'js': 'never',
-      'vue': 'never'
+      'vue': 'never',
+      'ts': 'never'
     }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       'optionalDependencies': ['test/unit/index.js']
     }],
     {{/if_eq}}
+
+    // for typescript-eslint-parser issues
+    'no-undef': 0,
+    'no-unused-vars' : 0,
+    'no-useless-constructor': 0,
+    'space-infix-ops': 0,
+
+    'linebreak-style': 'off',
+
+    // allow async-await
+    'generator-star-spacing': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

@@ -14,17 +14,25 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import {
+  Component,
+} from 'vue-property-decorator'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 {{#unless router}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
 {{/unless}}
-export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+
+@Component{{#if_eq router true}}({
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  }
+})
+{{else}}({})
+{{/if}}
+
+export default class extends Vue {}
 </script>
 
 <style>
