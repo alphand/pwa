@@ -24,14 +24,13 @@ import {
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/unless}}
 
-@Component{{#if_eq router true}}({
+@Component{{#if router}}({})
+{{else}}({
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }
 })
-{{else}}({})
 {{/if}}
-
 export default class extends Vue {}
 </script>
 
