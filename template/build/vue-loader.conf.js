@@ -20,5 +20,8 @@ module.exports = {
     source: 'src',
     img: 'src',
     image: 'xlink:href'
+  },
+  options: {
+    esModule: true
   }
 }
